@@ -1,0 +1,11 @@
+https://pt.stackoverflow.com/questions/245432/sqlstate-42000-syntax-error-or-access-violation-1071-specified-key-was-too-lon
+https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/
+atualizar o composer
+cd
+ 1841  cd ~
+ 1842  curl -sS https://getcomposer.org/installer -o composer-setup.php
+ 1843  HASH=`curl -sS https://composer.github.io/installer.sig`
+ 1844  echo $HASH
+ 1845  php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+ 1846  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+ 1847  composer
