@@ -36,7 +36,17 @@ class LogsController extends Controller
      */
     public function store(Request $request)
     {
+        var_dump($request->all());
         return Logs::create($request->all());
+    }
+
+    public static function criar($request)
+    {
+        var_dump(auth()->id());
+        return Logs::create(['data_consulta' => $request['data_consulta'],
+            'string_request' => $request['string_request'],
+            'id_user' => auth()->id()
+            ]);
     }
 
     /**

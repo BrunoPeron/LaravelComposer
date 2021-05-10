@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dash', function () {
+    return view('admin_layout');
+});
+
+Route::get('/temp', function () {
+    return view('temp');
+});
+
 Route::resource('logs', 'App\Http\Controllers\LogsController');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -1,5 +1,6 @@
 https://pt.stackoverflow.com/questions/245432/sqlstate-42000-syntax-error-or-access-violation-1071-specified-key-was-too-lon
 https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/
+https://marcelosena.com/instalando-php-7-4-no-debian-10-debian-9-e-derivados/
 atualizar o composer
 cd
  1841  cd ~
