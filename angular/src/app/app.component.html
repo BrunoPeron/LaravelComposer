@@ -1,0 +1,9 @@
+<br/>
+<input type="text" [(ngModel)]="log">
+{{log}}
+<button type="button" (click)="add()">Adicionar log</button>
+<ul>
+  <li *ngFor="let item of logs">
+    {{log}}
+  </li>
+</ul>
