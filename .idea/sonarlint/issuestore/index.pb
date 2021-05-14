@@ -27,3 +27,13 @@ W
 'laravel/resources/views/temp2.blade.php,9/e/9ebef281c8169cc85dd3212d7857172c7632de5f
 ^
 .laravel/resources/views/layouts/main.blade.php,2/7/275ce0e6139028a4add353c4670811b7056185be
+E
+laravel/composer.lock,8/4/840569131eaa9853e67007e23815aec79dfe1086
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+\
+,laravel/resources/views/users/list.blade.php,8/5/8524be9bfb68b5ff4e55b2b93d6e0e6085743b7a
+^
+.laravel/resources/views/users/create.blade.php,b/3/b3e51674e0a296d1c382e3fb636225e0d58892b4
+`
+0laravel/app/Http/Controllers/UsersController.php,a/8/a88153eeb9279f14a0f4c6c26d71f7e365bd6399

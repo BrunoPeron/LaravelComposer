@@ -22,19 +22,19 @@ Route::get('/dash', function () {
 });
 
 
-Route::get('/users/create/{id?}', function () {
-    $string = request('search');
-    return view('/users/create', ['string' => $string]);
-});
 
 
 use App\Http\Controllers\UsersController;
 
 Route::get('/users/create', [UsersController::class, 'create']);
-Route::post('/users', [UsersController::class, 'store']);
+Route::get('/users/post', [UsersController::class, 'create']);
+Route::post('/users/post', [UsersController::class, 'store']);
+//Route::get('/users/remove/{id}', [UsersController::class, 'destroy']);
+Route::delete('/users/delete/{id}', [UsersController::class, 'destroy']);
+Route::get('/users/update/{id}', [UsersController::class, 'update']);
 
 
-
+Route::get('/users/list', [UsersController::class, 'index']);
 
 
 

@@ -7,6 +7,9 @@
 {{--        <link rel="stylesheet" href="/css/styles">--}}
 {{--        <script src=""--}}
         <body>
+        @if(session('msg'))
+            <p class="msg">{{ session('msg') }}</p>
+        @endif
         @yield('content')
         <footer>
             <p>teste &copy; 2020</p>

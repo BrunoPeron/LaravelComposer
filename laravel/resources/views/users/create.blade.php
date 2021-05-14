@@ -1,5 +1,5 @@
 <div class="form-group">
-    <form class="form-signin" action="/users" method="POST">
+    <form class="form-signin" action="/users/post" method="POST">
         @csrf
         <input type="text" name="name" class="form-control" id="form-text" placeholder="name" required autofocus>
             <span role="alert" class="error-msg" id="errormsg_0_Passwd"></span>
@@ -12,9 +12,12 @@
         <span class="clearfix"></span>
     </form>
 </div>
-@if(!empty($status))
-    <p>Exibindo {{$status ?? ''}}</p>
-@endif
+@extends('layouts.main')
 
+@section('title', 'hdc')
 
+@section('content')
+    <td>{{$status ?? ''}}</td>
+    <p1>{{$msg ?? ''}}</p1>
 
+@endsection

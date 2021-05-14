@@ -17,7 +17,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return User::all();
+        $user = User::where('id', '!=', auth()->id())->get();
+        return view('/users/list', ['users' => $user]);
     }
 
     /**
@@ -40,7 +41,7 @@ class UsersController extends Controller
     {
         $user = User::where('email', '=', $request->email)->first();
         if ($user != null) {
-            return redirect('/users/create', 302, ['teste' => 'teste']);
+            return redirect('/users/create')->with('msg', 'EMAIL JA CADASTRADO');
         }
 
         $user = new User();
@@ -50,7 +51,7 @@ class UsersController extends Controller
         $user->save();
 
 
-        return redirect('/users/create/200');
+        return redirect('/users/create');
     }
 
 
@@ -96,6 +97,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+//        User::destroy($id);
+//        $user = User::where('id', '!=', auth()->id())->get();
+//        return view('/users/list', ['users' => $user, 'status' => 'Apagado com sucesso']);
+        return redirect('/users/list')->with(['msg' => 'apagado']);
     }
 }
