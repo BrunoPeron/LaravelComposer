@@ -21,9 +21,24 @@ Route::get('/dash', function () {
     return view('admin_layout');
 });
 
-Route::get('/temp', function () {
-    return view('temp');
+
+Route::get('/users/create/{id?}', function () {
+    $string = request('search');
+    return view('/users/create', ['string' => $string]);
 });
+
+
+use App\Http\Controllers\UsersController;
+
+Route::get('/users/create', [UsersController::class, 'create']);
+Route::post('/users', [UsersController::class, 'store']);
+
+
+
+
+
+
+
 
 Route::resource('logs', 'App\Http\Controllers\LogsController');
 

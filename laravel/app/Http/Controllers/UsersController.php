@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Logs;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Jetstream\Jetstream;
 
-class LogsController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,7 @@ class LogsController extends Controller
      */
     public function index()
     {
-
-        return Logs::all();
+        return User::all();
     }
 
     /**
@@ -26,7 +27,7 @@ class LogsController extends Controller
      */
     public function create()
     {
-        return view('logs.create');
+        return view('users.create');
     }
 
     /**
@@ -37,17 +38,21 @@ class LogsController extends Controller
      */
     public function store(Request $request)
     {
-        return Logs::create($request->all());
+        $user = User::where('email', '=', $request->email)->first();
+        if ($user != null) {
+            return redirect('/users/create', 302, ['teste' => 'teste']);
+        }
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+
+        return redirect('/users/create/200');
     }
 
-    public function criar($string)
-    {
-        $dataConsulta = date('Y-m-d H:i:s');
-        return Logs::create(['data_consulta' => $dataConsulta,
-            'string_request' => $string,
-            'id_user' => auth()->id()
-            ]);
-    }
 
     /**
      * Display the specified resource.

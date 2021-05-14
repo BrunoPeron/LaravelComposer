@@ -18,7 +18,7 @@ class CreateLogsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
-            $table->date('data_consulta');
+            $table->dateTime('data_consulta');
             $table->string('string_request');
         });
     }
