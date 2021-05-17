@@ -18,7 +18,8 @@ class UsersController extends Controller
     public function index()
     {
         $user = User::where('id', '!=', auth()->id())->get();
-        return view('/users/list', ['users' => $user]);
+        $userLog = User::where('id', '=', auth()->id())->first();
+        return view('/users/list', ['users' => $user, 'cargo' => $userLog->cargo]);
     }
 
     /**
@@ -28,7 +29,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $userLog = User::where('id', '=', auth()->id())->first();
+        return view('users.create')->with();
     }
 
     /**
@@ -41,7 +43,7 @@ class UsersController extends Controller
     {
         $user = User::where('email', '=', $request->email)->first();
         if ($user != null) {
-            return redirect('/users/create')->with('msg', 'EMAIL JA CADASTRADO');
+            return redirect('/users/create')->with('msg-alert', 'Email ja cadastrado');
         }
 
         $user = new User();
@@ -51,7 +53,7 @@ class UsersController extends Controller
         $user->save();
 
 
-        return redirect('/users/create');
+        return redirect('/users/create')->with('msg-sucess', 'Usuario cadastrado com sucesso');;
     }
 
 
